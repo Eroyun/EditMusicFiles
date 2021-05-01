@@ -3,7 +3,7 @@ import os
 import eyed3 as eye
 from typing import Pattern
 
-path = ""  # enter the path of your music files directory between the qutoes
+path = ""  # Write the path of the folder containing the music files between the quotation marks
 path = path.replace("\\", "/")
 
 filenamelist = os.listdir(path)
