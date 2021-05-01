@@ -1,4 +1,4 @@
-# EditMusicFiles
+# Group Songs By Artist Name
 This app renames your file by adding the artist name to the artist section in the details of the file and removes artist name from filename, by that it allows your phones and apps such as iTunes to group songs by artist.
 
 - 1- You must save music files like this: ```ArtistName - SongName.mp3```
