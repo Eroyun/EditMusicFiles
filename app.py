@@ -3,16 +3,19 @@ import os
 import eyed3 as eye
 from typing import Pattern
 
-path = ""  # Write the path of the folder containing the music files between the quotation marks
+# Write the path of the folder containing the music files between the quotation marks
+path = ""
 path = path.replace("\\", "/")
-
+if path[-1] != "/":
+    path += "/"
 filenamelist = os.listdir(path)
 
 for file in filenamelist:
-    x = re.search("([\w\W]*)(\s-\s)([\w\W]*)", file)
+    x = re.search(r"([\w\W]*)(\s-\s)([\w\W]*)", file)
     if x:
-        audiofile = eye.load(file)
+        path2 = os.path.join(path, file)
+        audiofile = eye.load(path2)
         audiofile.tag.artist = x.group(1)
         audiofile.tag.save()
         print(audiofile.tag.artist)
-        os.rename(file, x.group(3))
+        os.rename(path2, os.path.join(path, x.group(3)))
